@@ -6,9 +6,9 @@ quarkus:
 "%dev":
   quarkus:
     http:
-      host: null
+      port: 4445
 ---
 "%prod":
   quarkus:
     http:
-      host: ${HTTP_PORT:8080}
+      port: ${HTTP_PORT:8080}
