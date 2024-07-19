@@ -17,7 +17,4 @@ public class Person extends PanacheEntity {
     public String email;
     public LocalDate dob;
     public String address;
-
-    @TenantId
-    public String tenantId;
 }
