@@ -6,33 +6,21 @@ quarkus:
     dialect: "org.hibernate.dialect.PostgreSQLDialect"
     database:
       generation: none
-    multitenant: DATABASE
+    multitenant: SCHEMA
+
+  datasource:
+    db-kind: postgresql
+
+  flyway:
+    schemas: public,base,mycompany
+    migrate-at-start: true
 ---
 "%dev":
   quarkus:
     http:
       port: 4445
     hibernate-orm:
-      multitenant: DATABASE
-    datasource:
-      "base":
-        devservices:
-          enabled: true
-          db-name: base
-        db-kind: postgresql
-      "mycompany":
-        db-kind: postgresql
-        devservices:
-          enabled: true
-          db-name: mycompany
-
-    flyway:
-      "base":
-        migrate-at-start: true
-        locations: [ classpath:db/migration ]
-      "mycompany":
-        migrate-at-start: true
-        locations: [ classpath:db/mycompany ]
+      multitenant: SCHEMA
 ---
 "%prod":
   quarkus:

@@ -15,8 +15,8 @@ public class CustomTenantResolver implements TenantResolver {
     @Inject
     RoutingContext routingContext;
 
-    public static final  String QUERY_NAME = "tenantId";
-    public static final  String DEFAULT = "base";
+    public static final String QUERY_NAME = "tenantId";
+    public static final String DEFAULT = "public";
 
     @Override
     public String getDefaultTenantId() {
